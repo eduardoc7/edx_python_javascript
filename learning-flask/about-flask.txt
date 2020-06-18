@@ -52,3 +52,8 @@ Com o jinja também podemos tornar as nossas páginas web mais simples,
 criando um modelo base para todas as páginas e depois fazendo com que o restante das páginas,
 herdem as caracteristicas definidas no template do projeto. Também chamado de template inheritance.
 ------------------------------------------------------------------------
+GET: Fazer requisições a uma página, ou seja, trazar as informações para a tela.
+    por exemplo: digitando google.com
+POST: Enviar informações para o servidor, o post mascara essas informações.
+    por exemplo: enviar um formulário
+------------------------------------------------------------------------
