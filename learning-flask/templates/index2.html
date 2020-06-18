@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block head %}
+    Firts Page
+{% endblock %}
+
+{% block body %}
+        <h3>Names</h3>
+        <ul>
+            {% for name in names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('more') }}">More...</a>
+{% endblock %}

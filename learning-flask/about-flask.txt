@@ -1,0 +1,54 @@
+Escrito em Python e disponível sobre a licença BSD (Licença de código aberto),
+o Flask é um micro-framework multiplataforma que provê um modelo simples para o desenvolvimento web.
+    - destinado para aplicações mais simples e construções de sites básicos.
+    - simples
+    - rapidez no desenvolvimetno
+Um Micro-Framework são Frameworks modularizados que possuem uma estrutura inicial,
+muito mais simples quando comparado a um Framework convencional.
+------------------------------------------------------------------------
+
+Para a rota padrão (default route), que seria a primeira a ser conectada na página,
+retornarmos para o usuário a mensagem hello world:
+
+    @app.route('/')
+    def index():
+        return 'Hello, World!!!'
+------------------------------------------------------------------------
+Definindo uma string de qualquer valor como a nossa rota,
+ou seja, qualquer coisa que o usuário digitar depois da '/':
+
+    @app.route('/<string:name>')
+    def hello_du(name):
+        return f'<h1>Hello, {name}!</h1>'
+------------------------------------------------------------------------
+Templates são utilizados para o flask buscar o que ele deve renderizar na página principal,
+A biblioteca responsável para fazer essa exibição, ou seja, manipular o python para o html é o jinja2.
+No cenário abaixo, criamos o diretório 'template' e colocamos o nosso index.html lá.
+Usamos a variável 'headline' para mandarmos como parametro da função importada do flask,
+existindo uma variável headline no html e uma no python que é a origem.
+(podemos criar qualquer variável no python e exibir dessa forma no html),
+No html é representando da seguinte forma: {{ headline }}.
+
+    from flask import Flask, render_template
+    app = Flask(__name__)
+
+    # Main program
+    @app.route('/')
+    def index():
+        headline = 'Hello, World!!!'
+        return render_template('index.html', headline=headline)
+------------------------------------------------------------------------
+O jinja2 é responsável por renderizar todo o nosso código html e também possibilita tornar a página mais dinamica.
+Toda a sinxtase utilizada é do jinja, como por exemplo:
+    {{ nomedavariavel }}
+    {% if %} (exemplificado no index)
+    {% else %} (exemplificado no index)
+    {% endif %} (exemplificado no index)
+    {% for %} (exemplificado no index2)
+    {% endfor %} (exemplificado no index2)
+    {{% url_for('nomedafuncao') %}} (exemplificado no index2)
+
+Com o jinja também podemos tornar as nossas páginas web mais simples,
+criando um modelo base para todas as páginas e depois fazendo com que o restante das páginas,
+herdem as caracteristicas definidas no template do projeto. Também chamado de template inheritance.
+------------------------------------------------------------------------
