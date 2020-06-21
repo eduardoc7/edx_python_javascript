@@ -1,0 +1,7 @@
+<-- REFERÊNCIAS DE PESQUISA PARA ESTUDO -->
+
+
+https://pt.wikipedia.org/wiki/SQL
+https://pt.wikipedia.org/wiki/Banco_de_dados_relacional
+https://medium.com/@renato.groffe/postgresql-docker-executando-uma-inst%C3%A2ncia-e-o-pgadmin-4-a-partir-de-containers-ad783e85b1a4
+https://www.youtube.com/watch?v=AVNADGzXrrQ

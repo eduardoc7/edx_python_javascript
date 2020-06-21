@@ -1,0 +1,17 @@
+Quando fazemos um database ou uma tabela, é importante ressaltar o tipo do dado
+que será armazenado em uma dado coluna. Alguns tipos do SQL são:
+INTEGER
+DECIMAL
+SERIAL : an automatically incrementing integer
+VARCHAR : variable length of characters, i.e. string
+TIMESTAMP
+BOOLEAN
+ENUM : one of a discrete number of possible values
+
+Além dos tipos de dados as colunas também podem ter algumas restrições, como:
+NOT NULL: field must have a value; if field does not have a value, entry will be rejected
+UNIQUE: no two fields in this column can have the same value
+PRIMARY KEY: the main way to index a table
+DEFAULT: set a default value for a column if no other value is given
+CHECK: bound values; e.g. values greater than 50
+
