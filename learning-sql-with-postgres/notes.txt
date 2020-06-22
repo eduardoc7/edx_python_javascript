@@ -15,3 +15,29 @@ PRIMARY KEY: the main way to index a table
 DEFAULT: set a default value for a column if no other value is given
 CHECK: bound values; e.g. values greater than 50
 
+SOBRE QUERIES:
+SELECT - A query depois do SELECT indica qual coluna será selecionada da tabela
+WHERE - Utilizada para especificar as condições que devem reunir os registros que serão selecionados.
+
+FUNÇÕES DE AGREGAÇÃO:
+AVG(column) - retorna o valor da média
+COUNT(*) - retorna um numero de linhas do database
+MIN(column) - retorna o valor minimo
+MAX(column) - retornar o valor máximo
+SUM – Utilizada para devolver a soma de todos os valores de um campo determinado.
+
+CLAUSULAS:
+LIKE - é uma palavra-chave que pega uma sequência de modelos e retorna todas as
+linhas em que a coluna se encaixa nesse modelo. % é um curinga que corresponderá
+a qualquer texto.
+LIMIT - define um número máximo de linhas a ser retornada
+ORDER BY - organiza linhas por uma determinada coluna em ordem crescente (ASC) ou decrescente (DESC) antes de retornar linhas.
+GROUP BY -  organiza as linhas por grupos de mesmos valores, em uma coluna
+juntos
+HAVING - é um especificador opcional para GROUP BY que limita quais linhas serão retornadas, semelhante a WHERE.
+UNION – combina os resultados de duas consultas SQL em uma única tabela para todas as linhas correspondentes.
+BETWEEN – Utilizado para especificar valores dentro de um intervalo fechado.
+IN - Utilizado para verificar se o valor procurado está dentro de um« »a lista. Ex.: valor IN (1,2,3,4).
+
+OPERADORES LÓGICOS: AND, OR, NOT
+OPERADORES RELACIONAIS: >, <, >=, <=, = e <>.
