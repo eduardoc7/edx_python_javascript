@@ -1,0 +1,34 @@
+história:
+Django foi inicialmente desenvolvido entre 2003 e 2005 por um time de web que
+era responsavel por criar e manter sites de jornal. Depos de criar um numero de
+sites, o time começou a fatorar e reutilizar muitos de seus códigos comuns e
+padrões de design. Esse código comum evoluiu para um framework genérico de
+desenvolvimento web, que foi lançado como um projeto de código aberto nomeado
+"Django" em Julho de 2005.
+
+definição:
+Django é um framework web Python de alto nível que permite o rápido
+desenvolvimento de sites seguros e de fácil manutenção. Construido por
+desenvolvedores experientes, o Django cuida de grande parte do trabalho de
+desenvolvimento web, para que você possa se concentrar em escrever seu
+aplicativo sem precisar reinventar a roda. É gratuito e de código aberto, tem
+uma comunidade próspera e ativa, ótima documentação e muitas opções de suporte
+gratuito e pago.
+
+principais características:
+  - escrito em python
+  - utiliza o padrão model-template-view(mtv)
+
+referencias:
+https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/Introdu%C3%A7%C3%A3o
+
+Criando um novo projeto com o django:
+
+comando para criar os arquivos do projeto: django-admin startproject [nome do
+projeto]
+
+comando para executar o django: python3 manage.py (seguido do comando ex: runserver)
+
+
+
+
