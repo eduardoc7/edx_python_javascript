@@ -23,11 +23,23 @@ referencias:
 https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/Introdu%C3%A7%C3%A3o
 
 Criando um novo projeto com o django:
-
 comando para criar os arquivos do projeto: django-admin startproject [nome do
 projeto]
-
 comando para executar o django: python3 manage.py (seguido do comando ex: runserver)
+
+um projeto no django é composto por diversas subdivisões que são chamados de apps destinados para cada funcionalidade
+comando para criar um novo app com o django: python3 manage.py startapp [nome do app]
+após a criação de um app dentro do projeto, precisamos instalar essa aplicação dentro do projeto no arquivo settings.py
+podemos criar dentro do arquivo views.py o que queremos exibir quando o usuário entrar nessa nossa aplicação.
+criando uma função que recebe o argumento como uma requisição por parte do usuário.
+o próximo passo é criar uma regra que aponte uma url para esta função. Editando o arquivo urls.py (é importante que cada aplicação tenha um arquivo urls.py próprio)
+Após isso precisamos editar o arquivo urls.py do projeto todo, e não da aplicação especificamente (ex:7
+
+
+URLS.py: É o arquivo onde será configurado todas as rotas de urls dinâmicas, direcionando cada respectiva rota para sua função de uma aplicação no projeto
+VIEWS.py: Pode ser definido como algo que será mostrado para usuário.
+
+
 
 
 
