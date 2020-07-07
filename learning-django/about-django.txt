@@ -35,6 +35,15 @@ criando uma função que recebe o argumento como uma requisição por parte do u
 o próximo passo é criar uma regra que aponte uma url para esta função. Editando o arquivo urls.py (é importante que cada aplicação tenha um arquivo urls.py próprio)
 Após isso precisamos editar o arquivo urls.py do projeto todo, e não da aplicação especificamente (ex:7
 
+Dentro da nossa aplicação criada podemos adicionar uma pasta chamada templates, que onde será direcionado através do arquivo views e url uma rota
+para este template. Isso seria um simples arquivo .html com as especificações do framework django, ou seja, podemos adicionar funcionalidades de uma linguagem
+de programação dentro do arquivo html através dos django's templates.
+
+Existe uma funcionalidade dentro do django para separar os arquivos dinâmicos (ex: web pages) e os arquivos estáticos (styles for the web pages).
+O django lida com esses arquivos criando uma pasta chamada static dentro da pasta raiz da aplicação.
+Após isso, podemos incorporar esses arquivos estáticos dentro da nossa página: {% load static %}
+E chamar isso dentro do nossa head do html: <link href="{% static 'newyear/styles.css' rel="stylesheet" %}">
+Perceba que isso é uma boa prática criada pelo django facilitando como carregamos arquivos na nossa página dinamica.
 
 URLS.py: É o arquivo onde será configurado todas as rotas de urls dinâmicas, direcionando cada respectiva rota para sua função de uma aplicação no projeto
 VIEWS.py: Pode ser definido como algo que será mostrado para usuário.

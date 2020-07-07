@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', include("hello.urls")) # include usado para linkarmos os dois arquivos urls (do projeto e da aplicação).
+    path('hello/', include("hello.urls")), # include usado para linkarmos os dois arquivos urls (do projeto e da aplicação).
     # o caminho acima é como: execute o que há dentro do arquivo hello.urls
+    path('newyear/', include("newyear.urls"))
 ]
