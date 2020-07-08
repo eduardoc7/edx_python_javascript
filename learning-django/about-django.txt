@@ -18,6 +18,12 @@ gratuito e pago.
 principais características:
   - escrito em python
   - utiliza o padrão model-template-view(mtv)
+  model template view:
+    Model: Mapeamento do banco de dados para o projeto;
+    Template: Páginas para visualização de dados. Normalmente, é aqui que fica o HTML que será renderizado nos navegadores;
+    View: Lógica de negócio. É aqui que determinamos o que irá acontecer em nosso projeto.
+    Toda esta arquitetura é interligada e conversam entre si.
+    Uma depende da outra para realizar um determinado serviço e, no final, executar a tarefa que o usuário solicitou.
 
 referencias:
 https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/Introdu%C3%A7%C3%A3o
@@ -27,7 +33,7 @@ comando para criar os arquivos do projeto: django-admin startproject [nome do
 projeto]
 comando para executar o django: python3 manage.py (seguido do comando ex: runserver)
 
-um projeto no django é composto por diversas subdivisões que são chamados de apps destinados para cada funcionalidade
+um projeto no django é composto por diversas subdivisões que são chamados de apps destinados para cada funcionalidade.
 comando para criar um novo app com o django: python3 manage.py startapp [nome do app]
 após a criação de um app dentro do projeto, precisamos instalar essa aplicação dentro do projeto no arquivo settings.py
 podemos criar dentro do arquivo views.py o que queremos exibir quando o usuário entrar nessa nossa aplicação.
@@ -44,6 +50,9 @@ O django lida com esses arquivos criando uma pasta chamada static dentro da past
 Após isso, podemos incorporar esses arquivos estáticos dentro da nossa página: {% load static %}
 E chamar isso dentro do nossa head do html: <link href="{% static 'newyear/styles.css' rel="stylesheet" %}">
 Perceba que isso é uma boa prática criada pelo django facilitando como carregamos arquivos na nossa página dinamica.
+
+No django, como no flask, para facilitar a nossa vida em relação a criação de páginas html,
+existe uma funciolodade chamada de herança de template. Na qual herdam um layout definido.
 
 URLS.py: É o arquivo onde será configurado todas as rotas de urls dinâmicas, direcionando cada respectiva rota para sua função de uma aplicação no projeto
 VIEWS.py: Pode ser definido como algo que será mostrado para usuário.
