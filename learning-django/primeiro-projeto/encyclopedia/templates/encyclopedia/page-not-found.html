@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>NOT FOUND</title>
+    </head>
+    <body>
+        <h1>Page requested /{{ title }} not exist in our Encyclopedia!</h1>
+        <h3>You can access the following pages:</h3>
+        <ul>
+            {% for entry in entries %}
+                <li>/{{ entry }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

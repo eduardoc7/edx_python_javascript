@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('encyclopedia.urls')),
+    path('encyclopedia/', include('encyclopedia.urls')),
 
     path('admin/', admin.site.urls),
     path('hello/', include("hello.urls")), # include usado para linkarmos os dois arquivos urls (do projeto e da aplicação).
