@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>NOT FOUND</title>
-    </head>
-    <body>
+{% extends "encyclopedia/layout.html" %}
+{% block title %} not found {% endblock %}
+
+{% block body %}
         <h1>Page requested /{{ title }} not exist in our Encyclopedia!</h1>
-        <h3>You can access the following pages:</h3>
-        <ul>
-            {% for entry in entries %}
-                <li>/{{ entry }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+        {% if entries|length < 1 %}
+            <h3 style="margin-top: 10px">You can access the following pages:</h3>
+            <ul>
+                {% for entry in entries2 %}
+                <li><a href="{% url 'wiki:show' entry %}">/{{ entry }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3 style="margin-top: 10px">You can access the following pages:</h3>
+            <ul>
+                {% for entry in entries %}
+                <li><a href="{% url 'wiki:show' entry %}">/{{ entry }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+{% endblock %}
