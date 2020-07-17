@@ -1,8 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+
 import markdown2
+from django import forms
 
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from . import util
+
+
+class CreatePage(forms.Form):
+    title = forms.CharField(label="Page Title")
+    content = forms.CharField(label="Page Content", widget=forms.Textarea(
+        attrs={
+            "placeholder": "Type here the content of this especially wiki. The content should be write in Markdown.",
+            "style": "width: 600px; height: auto; min-height: 500px;"
+        }
+    ))
 
 
 def index(request):
@@ -37,3 +50,18 @@ def search(request):
         return show_page(request, query)
 
 
+def create(request):
+    if request.method == 'POST':
+        form = CreatePage(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            if util.get_entry(title):
+                return render(request, "encyclopedia/error.html")
+
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
+            return HttpResponseRedirect(f"wiki/{title}")
+        else:
+            return render(request, "encyclopedia/create-page.html", {"form": form})
+    else:
+        return render(request, "encyclopedia/create-page.html", {"form": CreatePage()})
