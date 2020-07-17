@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    <h1 style="text-align: center;">All Pages</h1>
     <ul>
         {% for entry in entries %}
             <li><a href="{% url 'wiki:show' entry %}">{{ entry }}</a></li>
