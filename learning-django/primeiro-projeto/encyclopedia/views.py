@@ -103,5 +103,6 @@ def edit(request, title):
 
 
 def random(request):
-
+    entry = choice(util.list_entries())
+    return HttpResponseRedirect(f"wiki/{entry}")
 
