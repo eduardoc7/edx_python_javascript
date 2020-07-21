@@ -1,16 +1,27 @@
 from django.shortcuts import render
 
 import markdown2
+from random import choice
 from django import forms
 
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 from . import util
 
 
+# formulário para criar uma nova página:
 class CreatePage(forms.Form):
     title = forms.CharField(label="Page Title")
     content = forms.CharField(label="Page Content", widget=forms.Textarea(
+        attrs={
+            "placeholder": "Type here the content of this especially wiki. The content should be write in Markdown.",
+            "style": "width: 600px; height: auto; min-height: 500px;"
+        }
+    ))
+
+
+# formulário para carregar uma página existente
+class EditContent(forms.Form):
+    content = forms.CharField(label="Edit Page Content", widget=forms.Textarea(
         attrs={
             "placeholder": "Type here the content of this especially wiki. The content should be write in Markdown.",
             "style": "width: 600px; height: auto; min-height: 500px;"
@@ -56,7 +67,9 @@ def create(request):
         if form.is_valid():
             title = form.cleaned_data["title"]
             if util.get_entry(title):
-                return render(request, "encyclopedia/error.html")
+                return render(request, "encyclopedia/error.html", {
+                    "msg": "ERROR! This page already exist in our Encyclopedia!"
+                })
 
             content = form.cleaned_data["content"]
             util.save_entry(title, content)
@@ -65,3 +78,30 @@ def create(request):
             return render(request, "encyclopedia/create-page.html", {"form": form})
     else:
         return render(request, "encyclopedia/create-page.html", {"form": CreatePage()})
+
+
+def edit(request, title):
+    if request.method == "GET":
+        content = util.get_entry(title)
+        if not content:
+            return render(request, "encyclopedia/error.html", {
+                "msg": f"Sorry, there's no page about {title} yet!"
+            })
+        return render(request, "encyclopedia/edit.html", {
+            "form": EditContent(initial={"content": content}),
+            "title": title
+        })
+    else:
+        form = EditContent(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
+
+            return HttpResponseRedirect(f"/encyclopedia/wiki/{title}")
+        else:
+            return render(request, "encyclopedia/edit.html", {"form": form})
+
+
+def random(request):
+
+
