@@ -5,6 +5,7 @@ from random import choice
 from django import forms
 
 from django.http import HttpResponseRedirect
+
 from . import util
 
 
@@ -105,4 +106,3 @@ def edit(request, title):
 def random(request):
     entry = choice(util.list_entries())
     return HttpResponseRedirect(f"wiki/{entry}")
-
