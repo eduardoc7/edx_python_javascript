@@ -54,8 +54,67 @@ Perceba que isso é uma boa prática criada pelo django facilitando como carrega
 No django, como no flask, para facilitar a nossa vida em relação a criação de páginas html,
 existe uma funciolodade chamada de herança de template. Na qual herdam um layout definido.
 
+
+TRABALHANDO COM MODELS:
+Para criar um banco de dados baseado no nosso modelo que definimos naquele app, navegamos até o diretório principal do projeto
+e rodamos o seguinte comando:
+    python manage.py makemigrations
+Este comando cria alguns arquivos Python que criarão ou editarão nosso banco de dados para poder armazenar o que temos em nossos modelos.
+Este processo também é chamado de migration. (aplicando as alterações do nosso modelo no banco de dados)
+Para de fato fazer esse processo de aplicar as alterações do modelo no banco de dados, usamos o comando:
+    python manage.py migrate
+
+INTERAGINDO COM ESTE MODELO CRIADO DENTRO DO BANCO DE DADOS:
+1 maneira: poderiamos utilizar a linguagem SQL e interagir diretamente com o banco, entretanto o django nos possibilita uma abstração através da linguagem pyhton
+Podemos utilizar o shell do django com o comando: python manage.py shell
+
+COMANDOS dentro do shell para interagir com o BANCO DE DADOS:
+Escrevendo em uma tabela:
+    from flights.models import Flight
+    f = Flights(origin="New York", destination="London", duration=415)
+    f.save()
+
+Listando todos os objetos desta tabela:
+    Flights.objects.all()
+    Entretanto, podem ser interessante criarmos uma representação de string para esse objeto:
+    No arquivo models.py criamos uma função __str__ que retorna essa representação.
+
+    No shell:
+    >>> from flights.models import Flights
+    >>> flights = Flights.objects.all()
+    >>> flights
+        <QuerySet [<Flights: 1: New York to London>]>
+    >>> flight = flights.first()
+    >>> flight
+        <QuerySet [<Flights: 1: New York to London>]>
+    >>> flight.id
+        1
+    >>> flight.origin
+        'New York'
+    >>> flight.destination
+        'London'
+    >>> flight.duration
+        415
+    >>> flights.delete()
+        (1, {'flights.Flights': 1})
+
+RELACIONAMENTO ENTRE MODELOS (TABELAS):
+Django permite que você defina relações que são um pra um (OneToOneField), um pra muitos (ForeignKey) e muitos pra muitos (ManyToManyField).
+
+
+
+
+
+
+
+
 URLS.py: É o arquivo onde será configurado todas as rotas de urls dinâmicas, direcionando cada respectiva rota para sua função de uma aplicação no projeto
 VIEWS.py: Pode ser definido como algo que será mostrado para usuário.
+MODELS.py: Será nessa arquivo que iremos escrever nossos modelos através de classes do python. Após isso o Django será
+responsável para lidar com a comunicação com o banco de dados e também com o trabalho do SQL.
+Dentro do arquivo models, podemos pensar como cada modelo será destinado para cada tabela principal do banco.
+
+
 
 
 
