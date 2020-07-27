@@ -102,6 +102,14 @@ RELACIONAMENTO ENTRE MODELOS (TABELAS):
 Django permite que você defina relações que são um pra um (OneToOneField), um pra muitos (ForeignKey) e muitos pra muitos (ManyToManyField).
 
 
+TRABALHANDO COM O ADMIN DO DJANGO:
+O django tem como um dos seus princípios o método DRY, sendo assim ele é consistente para disponibilizar coisas que serão utilizadas com frenquência em uma aplicação web com o django.
+Uma dessas coisas, como exemplo, seria a manipulação de dados existentes na nossas tabelas. Estas são geradas pelos nossos arquivos .models da aplicação.
+Entretanto, usar como a única forma de manipulação de dados sendo o shell isso torna-se muito trabalhoso.
+Para habilitar o django admin, precisamos primeiramente criar um usuário para a nossa aplicação. Com o comando: >>python manage.py createsuperuser<<
+O admin é uma aplicação que ja vem implementada a partir do momento em que criamos qualquer projeto com o django.
+Depois de criar o usuário, precisamos ir até o arquivo admin.py no projeto e adicionar os nossos modelos na aplicação do admin, para que ele possa gerenciar os nosso modelos.
+
 
 
 
