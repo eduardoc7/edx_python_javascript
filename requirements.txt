@@ -4,7 +4,7 @@ Django==3.0.8
 Flask==1.1.2
 itsdangerous==1.1.0
 Jinja2==2.11.2
-markdown2==2.3.9
+markdown2==2.4.0
 MarkupSafe==1.1.1
 pytz==2020.1
 sqlparse==0.3.1
